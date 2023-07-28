@@ -1,0 +1,58 @@
+package com.application.product.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.application.product.entity.ProductsEntity;
+import com.application.product.service.ProductService;
+
+@Controller
+//@RequestMapping("/products")
+//@ResponseBody
+public class ProductController {
+	@Autowired
+	ProductService prodServ;
+
+	@GetMapping("/gethtml")
+	public String getMessage() {
+		return "hello.html";
+	}
+	
+	@GetMapping("/getResponse")
+	public ResponseEntity<String> getResponse(){
+		return  new ResponseEntity<>("Response from Response Entity Method", HttpStatus.OK);
+	}
+	
+	@PostMapping("/saveProduct")
+	public String saveproducts(@RequestBody List<ProductsEntity> pe) {
+		return prodServ.saveProducts(pe);
+	}
+ 
+	@GetMapping("/getAllProducts")
+	@ResponseBody
+	public List<ProductsEntity> getAllProdcuts() {
+		return prodServ.getAllProducts();
+	}
+
+	@GetMapping("/getOneProducts/{hsn}")
+
+	public ProductsEntity findByID(@PathVariable int hsn) {
+		return prodServ.findByID(hsn);
+	}
+
+	@GetMapping("/getProductsByHSN/{hsn}")
+	public List<ProductsEntity> findProdcutsByHSN(@PathVariable int hsn) {
+		return prodServ.findProductsByHSN(hsn);
+	}
+
+}

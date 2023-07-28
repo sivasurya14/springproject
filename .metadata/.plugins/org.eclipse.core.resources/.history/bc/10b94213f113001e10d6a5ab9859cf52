@@ -1,0 +1,18 @@
+package com.example.employee;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+
+@Controller
+public class EmployeController {
+
+	@Autowired
+	EmployeService empService;
+
+	@PostMapping("/saveDetails")
+	public String addEmploye(EmployeEntity e) {
+
+		return empService.addEmploye(e);
+	}
+}

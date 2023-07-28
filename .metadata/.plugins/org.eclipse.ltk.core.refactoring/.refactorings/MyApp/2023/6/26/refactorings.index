@@ -1,0 +1,7 @@
+1687773664569	Rename package 'com.myapp.vehicle.CarController'
+1687773676048	Rename package 'com.myapp.vehicle.CarDao'
+1687773687524	Rename package 'com.myapp.vehicle.CarService'
+1687773699443	Rename package 'com.myapp.vehicle.CarRepo'
+1687773708883	Rename package 'com.myapp.vehicle.CarEntity'
+1687774102304	Delete element
+1687948595561	Rename field 'carrepo'

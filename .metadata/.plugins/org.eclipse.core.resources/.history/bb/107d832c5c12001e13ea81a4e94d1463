@@ -1,0 +1,26 @@
+package com.example.demo;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class DemoController {
+
+	@GetMapping("/get")
+	public String getMessage() {
+		return "Hellow World ";
+
+	}
+
+	@GetMapping("/getName")
+	public String getName() {
+		return "Hello sivasuriyan";
+	}
+
+	@GetMapping("/add/{no1}/{no2}/")
+	public String addNumber(@PathVariable int no1, @PathVariable int no2) {
+		return "total of Two number is: "+no1 + no2;
+	}
+
+}
